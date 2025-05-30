@@ -1,0 +1,143 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwj6vudumqreh"]
+
+[ext_resource type="Script" uid="uid://b12b4hehk514h" path="res://scripts/TitleScreen.cs" id="1_wosw1"]
+[ext_resource type="Texture2D" uid="uid://daav0hfyfd0ad" path="res://assets/textures/Image53.png" id="2_wosw1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wosw1"]
+bg_color = Color(0, 0, 0, 0.415686)
+
+[sub_resource type="SystemFont" id="SystemFont_pvspv"]
+font_names = PackedStringArray("Copperplate Gothic")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p6dhs"]
+bg_color = Color(0.0383972, 0.0383972, 0.0383972, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_bottom = 5
+border_color = Color(0.479719, 0.479719, 2.88785e-07, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ignj"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_bottom = 5
+border_color = Color(0.329648, 0.329648, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 20.0
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wosw1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wosw1")
+expand_mode = 1
+
+[node name="TextureRect2" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 540)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -270.0
+offset_bottom = 270.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wosw1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="UI_Box" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="Button1" type="Button" parent="MarginContainer/UI_Box"]
+custom_minimum_size = Vector2(250, 40)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.905882, 0.701961, 0.313726, 1)
+theme_override_colors/font_outline_color = Color(0.982786, 0.871044, 0.679506, 1)
+theme_override_colors/font_color = Color(0.905882, 0.701961, 0.313726, 1)
+theme_override_colors/font_focus_color = Color(0.888328, 0.683822, 0.290242, 1)
+theme_override_fonts/font = SubResource("SystemFont_pvspv")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/hover = SubResource("StyleBoxFlat_p6dhs")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4ignj")
+text = "Continue"
+alignment = 0
+metadata/translation_category = "main_menu"
+metadata/translation_key = "continue"
+
+[node name="Button2" type="Button" parent="MarginContainer/UI_Box"]
+layout_mode = 2
+text = "New Game"
+metadata/translation_key = "new_game"
+
+[node name="Button3" type="Button" parent="MarginContainer/UI_Box"]
+layout_mode = 2
+text = "Game Load"
+metadata/translation_key = "load_game"
+
+[node name="Button4" type="Button" parent="MarginContainer/UI_Box"]
+layout_mode = 2
+text = "Game Options"
+metadata/translation_key = "game_options"
+
+[node name="Button5" type="Button" parent="MarginContainer/UI_Box"]
+layout_mode = 2
+text = "Game Mode"
+metadata/translation_key = "mod_button"
+
+[node name="Button6" type="Button" parent="MarginContainer/UI_Box"]
+layout_mode = 2
+text = "Exit"
+metadata/translation_key = "exit"
+
+[node name="Locale_Box" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+columns = 2
+
+[node name="LanguageLabel" type="Label" parent="MarginContainer/Locale_Box"]
+visible = false
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+metadata/translation_category = "settings"
+metadata/translation_key = "language_label"
+
+[node name="LangOption" type="OptionButton" parent="MarginContainer/Locale_Box"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 8
