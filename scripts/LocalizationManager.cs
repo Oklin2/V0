@@ -32,8 +32,6 @@ public partial class LocalizationManager : Node
 
 	private void Initialize()
 	{
-		// 매핑 파일 로드
-		LoadLanguageMapping();
 		
 		// 저장된 언어 설정 불러오기
 		string savedLang = LoadSavedLanguage();
@@ -51,45 +49,6 @@ public partial class LocalizationManager : Node
 		
 		LoadTranslations(CurrentLanguage);
 		GD.Print($"LocalizationManager initialized. Language: {CurrentLanguage}");
-	}
-
-	private void LoadLanguageMapping()
-	{
-		string path = "res://locale/language_mapping.cfg";
-		
-		if (!Godot.FileAccess.FileExists(path))
-		{
-			GD.Print("Language mapping file not found. Using default mapping.");
-			return;
-		}
-
-		try
-		{
-			using (var file = Godot.FileAccess.Open(path, Godot.FileAccess.ModeFlags.Read))
-			{
-				while (!file.EofReached())
-				{
-					string line = file.GetLine().StripEdges();
-					
-					if (string.IsNullOrWhiteSpace(line) || line.StartsWith("#")) 
-						continue;
-
-					int separatorIndex = line.IndexOf('=');
-					if (separatorIndex > 0)
-					{
-						string langCode = line.Substring(0, separatorIndex).StripEdges();
-						string countryCode = line.Substring(separatorIndex + 1).StripEdges();
-						
-						_languageToCountryMap[langCode] = countryCode;
-						GD.Print($"Language mapping: {langCode} -> {countryCode}");
-					}
-				}
-			}
-		}
-		catch (Exception e)
-		{
-			GD.PrintErr($"Error loading language mapping: {e.Message}");
-		}
 	}
 
 	// 저장된 언어 불러오기
@@ -311,17 +270,7 @@ public partial class LocalizationManager : Node
 		_nativeNameCache[langCode] = result;
 		return result;
 	}
-	
-	// 언어 코드를 국가 코드로 변환
-	public string GetCountryCode(string langCode)
-	{
-		if (_languageToCountryMap.TryGetValue(langCode, out string countryCode))
-		{
-			return countryCode;
-		}
-		return langCode;
-	}
-	
+
 	// 캐시 초기화 (새 언어 추가 시 호출)
 	public void ClearCache()
 	{

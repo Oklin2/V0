@@ -19,6 +19,7 @@ public partial class TitleScreen : Control
 
 	public override void _Ready()
 	{
+		FontManager.Instance.UpdateFont();
 		// 기존 초기화 코드
 		_langOption = GetNode<OptionButton>("MarginContainer/Locale_Box/LangOption");
 		InitializeLanguageOptions(false);

@@ -1,13 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwj6vudumqreh"]
+[gd_scene load_steps=6 format=3 uid="uid://cwj6vudumqreh"]
 
 [ext_resource type="Script" uid="uid://b12b4hehk514h" path="res://scripts/TitleScreen.cs" id="1_wosw1"]
 [ext_resource type="Texture2D" uid="uid://daav0hfyfd0ad" path="res://assets/textures/Image53.png" id="2_wosw1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wosw1"]
 bg_color = Color(0, 0, 0, 0.415686)
-
-[sub_resource type="SystemFont" id="SystemFont_pvspv"]
-font_names = PackedStringArray("Copperplate Gothic")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p6dhs"]
 bg_color = Color(0.0383972, 0.0383972, 0.0383972, 1)
@@ -89,7 +86,6 @@ theme_override_colors/font_hover_color = Color(0.905882, 0.701961, 0.313726, 1)
 theme_override_colors/font_outline_color = Color(0.982786, 0.871044, 0.679506, 1)
 theme_override_colors/font_color = Color(0.905882, 0.701961, 0.313726, 1)
 theme_override_colors/font_focus_color = Color(0.888328, 0.683822, 0.290242, 1)
-theme_override_fonts/font = SubResource("SystemFont_pvspv")
 theme_override_font_sizes/font_size = 28
 theme_override_styles/hover = SubResource("StyleBoxFlat_p6dhs")
 theme_override_styles/normal = SubResource("StyleBoxFlat_4ignj")
@@ -100,7 +96,7 @@ metadata/translation_key = "continue"
 
 [node name="Button2" type="Button" parent="MarginContainer/UI_Box"]
 layout_mode = 2
-text = "New Game"
+text = "인스펙터 텍스트"
 metadata/translation_key = "new_game"
 
 [node name="Button3" type="Button" parent="MarginContainer/UI_Box"]
@@ -115,7 +111,7 @@ metadata/translation_key = "game_options"
 
 [node name="Button5" type="Button" parent="MarginContainer/UI_Box"]
 layout_mode = 2
-text = "Game Mode"
+text = "Game Mod"
 metadata/translation_key = "mod_button"
 
 [node name="Button6" type="Button" parent="MarginContainer/UI_Box"]
@@ -130,7 +126,6 @@ size_flags_vertical = 8
 columns = 2
 
 [node name="LanguageLabel" type="Label" parent="MarginContainer/Locale_Box"]
-visible = false
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 4
